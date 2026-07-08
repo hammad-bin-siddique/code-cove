@@ -3,7 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ----- Loader: hide once the page has fully loaded -----
+  //  Loader: hide once the page has fully loaded 
   const loader = document.querySelector('.loader');
   if (loader) {
     window.addEventListener('load', () => {
@@ -190,16 +190,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  //  Contact form: basic front-end handling only 
+  //  Contact form: send via FormSubmit AJAX so messages actually arrive
   const contactForm = document.querySelector('.contact-form form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
       const button = contactForm.querySelector('button[type="submit"]');
       const originalText = button.innerHTML;
-      button.innerHTML = 'Message sent <i class="fa-solid fa-check"></i>';
-      contactForm.reset();
-      setTimeout(() => { button.innerHTML = originalText; }, 2500);
+      button.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+      button.disabled = true;
+
+      const formData = new FormData(contactForm);
+      const actionUrl = contactForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+
+      fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
+        })
+        .then(() => {
+          button.innerHTML = 'Message sent <i class="fa-solid fa-check"></i>';
+          contactForm.reset();
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.disabled = false;
+          }, 2500);
+        })
+        .catch(() => {
+          button.innerHTML = 'Failed, try again <i class="fa-solid fa-triangle-exclamation"></i>';
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.disabled = false;
+          }, 2500);
+        });
     });
   }
 

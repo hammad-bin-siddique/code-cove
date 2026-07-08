@@ -23,7 +23,7 @@
   /* semantic tokens, these are the ones components should use */
   --color-accent: var(--vivid-tangerine);
   --color-accent-deep: var(--brandy);
-  --color-secondary: var(--stormy-teal);
+  --color-secondary: var(--text-primary);
 
   /* dark mode is the default theme */
   --bg-body: var(--ink-black);

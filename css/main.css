@@ -333,7 +333,7 @@
 
 .frame-bar span:nth-child(1){ background: var(--brandy); }
 .frame-bar span:nth-child(2){ background: var(--vivid-tangerine); }
-.frame-bar span:nth-child(3){ background: var(--stormy-teal); }
+.frame-bar span:nth-child(3){ background: var(--color-secondary); }
 
 /* About */
 .about .container{
@@ -529,7 +529,7 @@
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: var(--color-secondary);
+  background: var(--vivid-tangerine);
   color: var(--papaya-whip);
   display: flex;
   align-items: center;
