@@ -1,14 +1,10 @@
-/* ==========================================================================
-   GLOBAL STYLES
+/* GLOBAL STYLES
    Fonts, color tokens, spacing tokens, resets. Everything else (layout,
-   components, page-specific rules) lives in main.css and responsive.css.
-   ========================================================================== */
+   components, page-specific rules) lives in main.css and responsive.css. */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
-/* --------------------------------------------------------------------
-   Color tokens
-   -------------------------------------------------------------------- */
+/* colors */
 :root{
   /* brand colors, kept as given */
   --ink-black: #001524;
@@ -67,9 +63,7 @@
   --shadow-color: rgba(0, 21, 36, 0.12);
 }
 
-/* --------------------------------------------------------------------
-   Reset
-   -------------------------------------------------------------------- */
+/* Reset */
 *, *::before, *::after{
   box-sizing: border-box;
   margin: 0;
@@ -149,9 +143,7 @@ select:focus-visible{
   border-radius: 4px;
 }
 
-/* --------------------------------------------------------------------
-   Shared layout helpers
-   -------------------------------------------------------------------- */
+/* Shared Layout  */
 .container{
   width: 100%;
   max-width: var(--max-width);

@@ -1,10 +1,8 @@
-/* ==========================================================================
-   MAIN STYLES — layout and components shared by index.html and project.html
-   ========================================================================== */
 
-/* --------------------------------------------------------------------
-   Loader
-   -------------------------------------------------------------------- */
+  /*    MAIN STYLES — layout and components shared by index.html and project.html
+ */
+
+ /* loader */
 .loader{
   position: fixed;
   inset: 0;
@@ -46,9 +44,7 @@
   50%{ transform: scaleY(1); opacity: 1; }
 }
 
-/* --------------------------------------------------------------------
-   Custom cursor (desktop only, toggled off on touch by script.js)
-   -------------------------------------------------------------------- */
+/*   Custom cursor (desktop only, toggled off on touch by script.js) */
 .cursor-dot,
 .cursor-ring{
   position: fixed;
@@ -79,9 +75,7 @@
   opacity: .6;
 }
 
-/* --------------------------------------------------------------------
-   Header
-   -------------------------------------------------------------------- */
+/*Header */
 .site-header{
   position: fixed;
   top: 0;
@@ -221,9 +215,7 @@
   font-size: 1.4rem;
 }
 
-/* --------------------------------------------------------------------
-   Hero
-   -------------------------------------------------------------------- */
+/* Hero */
 .hero{
   padding-top: calc(var(--space-block) + 3em);
   position: relative;
@@ -343,9 +335,7 @@
 .frame-bar span:nth-child(2){ background: var(--vivid-tangerine); }
 .frame-bar span:nth-child(3){ background: var(--stormy-teal); }
 
-/* --------------------------------------------------------------------
-   About
-   -------------------------------------------------------------------- */
+/* About */
 .about .container{
   display: grid;
   grid-template-columns: .85fr 1.15fr;
@@ -404,10 +394,7 @@
   font-size: .8rem;
   margin-top: .4em;
 }
-
-/* --------------------------------------------------------------------
-   Experience (timeline)
-   -------------------------------------------------------------------- */
+/* Experience */
 .experience-grid{
   display: grid;
   grid-template-columns: 1.1fr .9fr;
@@ -518,9 +505,7 @@
   font-size: .8rem;
 }
 
-/* --------------------------------------------------------------------
-   Skills
-   -------------------------------------------------------------------- */
+/* Skills */
 .skills-grid{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -579,9 +564,7 @@
   color: var(--color-secondary);
 }
 
-/* --------------------------------------------------------------------
-   Projects (featured, on index) + project grid (on project.html)
-   -------------------------------------------------------------------- */
+/* Projects */
 .projects-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -679,9 +662,7 @@
   gap: 2em;
 }
 
-/* --------------------------------------------------------------------
-   Pricing
-   -------------------------------------------------------------------- */
+/* Pricing */
 .pricing-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -757,9 +738,7 @@
   margin-top: .2em;
 }
 
-/* --------------------------------------------------------------------
-   FAQs
-   -------------------------------------------------------------------- */
+/* Faqs */
 .faq-list{
   max-width: 800px;
   margin-inline: auto;
@@ -808,9 +787,7 @@
   font-size: .93rem;
 }
 
-/* --------------------------------------------------------------------
-   Contact
-   -------------------------------------------------------------------- */
+/* Contact */
 .contact .container{
   display: grid;
   grid-template-columns: .8fr 1.2fr;
@@ -930,9 +907,7 @@
   color: var(--color-accent);
 }
 
-/* --------------------------------------------------------------------
-   Footer
-   -------------------------------------------------------------------- */
+/* Footer */
 .site-footer{
   border-top: 1px solid var(--border-soft);
   padding-block: 3em 2em;
@@ -974,9 +949,7 @@
   color: var(--color-accent);
 }
 
-/* --------------------------------------------------------------------
-   Back to top
-   -------------------------------------------------------------------- */
+/* Back to Top */
 .back-to-top{
   position: fixed;
   bottom: 2em;
@@ -1006,9 +979,7 @@
   transform: translateY(-4px);
 }
 
-/* --------------------------------------------------------------------
-   Lightbox: full image popup for project thumbnails
-   -------------------------------------------------------------------- */
+/* Light box full image  */
 .project-thumb img{
   cursor: zoom-in;
 }
@@ -1067,9 +1038,7 @@
   transform: rotate(90deg);
 }
 
-/* --------------------------------------------------------------------
-   Page hero (used on project.html for the small page header)
-   -------------------------------------------------------------------- */
+/* hero page link  */
 .page-hero{
   padding-top: calc(var(--space-block) + 3em);
   padding-bottom: 2em;

@@ -1,6 +1,5 @@
-// ==========================================================================
-// Shared script for index.html and project.html
-// ==========================================================================
+//  Shared script for index.html and project.html
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -12,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ----- Custom cursor: dot follows instantly, ring follows with a delay -----
+  // Custom cursor: dot follows instantly, ring follows with a delay
   const cursorDot = document.querySelector('.cursor-dot');
   const cursorRing = document.querySelector('.cursor-ring');
 
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ----- Theme toggle, dark mode is the default -----
+  //  Theme toggle, dark mode is the default 
   const root = document.documentElement;
   const themeToggle = document.querySelector('.theme-toggle');
   const savedTheme = localStorage.getItem('theme');
@@ -60,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ----- Header: add a background once the page is scrolled -----
+  //  Header: add a background once the page is scrolled 
   const header = document.querySelector('.site-header');
   const onScroll = () => {
     if (header) header.classList.toggle('is-scrolled', window.scrollY > 40);
@@ -71,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll);
   onScroll();
 
-  // ----- Mobile nav drawer -----
+  //  Mobile nav drawer 
   const hamburger = document.querySelector('.hamburger');
   const mobileNav = document.querySelector('.mobile-nav');
   const closeMenu = document.querySelector('.close-menu');
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ----- Back to top button -----
+  //  Back to top button
   const backToTop = document.querySelector('.back-to-top');
   if (backToTop) {
     backToTop.addEventListener('click', () => {
@@ -92,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ----- Scroll reveal animations -----
+  //  Scroll reveal animations 
   const revealItems = document.querySelectorAll('[data-reveal]');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -104,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15 });
   revealItems.forEach((item) => revealObserver.observe(item));
 
-  // ----- Active nav link highlighting while scrolling -----
+  // Active nav link highlighting while scrolling 
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   if (sections.length && navLinks.length) {
@@ -120,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach((section) => navObserver.observe(section));
   }
 
-  // ----- Animated counters in the about stats boxes -----
+  //  Animated counters in the about stats boxes 
   const counters = document.querySelectorAll('.counter');
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -142,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   counters.forEach((counter) => counterObserver.observe(counter));
 
-  // ----- FAQ accordion -----
+  // FAQ accordion 
   document.querySelectorAll('.faq-item').forEach((item) => {
     const question = item.querySelector('.faq-question');
     const answer = item.querySelector('.faq-answer');
@@ -159,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ----- Image lightbox for project thumbnails -----
+  //  Image lightbox for project thumbnails 
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxClose = document.querySelector('.lightbox-close');
@@ -191,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ----- Contact form: basic front-end handling only -----
+  //  Contact form: basic front-end handling only 
   const contactForm = document.querySelector('.contact-form form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {

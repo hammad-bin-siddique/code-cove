@@ -1,10 +1,8 @@
-/* ==========================================================================
-   RESPONSIVE STYLES — tablet and mobile rules for index.html + project.html
-   ========================================================================== */
+ /* RESPONSIVE STYLES  tablet and mobile rules for index.html + project.html
+ Tablet and below: block spacing drops to 3em, hamburger takes over */
 
-/* --------------------------------------------------------------------
-   Tablet and below: block spacing drops to 3em, hamburger takes over
-   -------------------------------------------------------------------- */
+
+
 @media (max-width: 1024px){
   :root{
     --space-block: 3em;
@@ -52,9 +50,7 @@
   }
 }
 
-/* --------------------------------------------------------------------
-   Mobile
-   -------------------------------------------------------------------- */
+/* Mobile */
 @media (max-width: 640px){
   .projects-grid,
   .skills-grid,
@@ -96,9 +92,7 @@
   }
 }
 
-/* --------------------------------------------------------------------
-   Cursor: hide the custom cursor on touch devices, restore native pointer
-   -------------------------------------------------------------------- */
+/* Hide cursor */
 @media (hover: none), (pointer: coarse){
   .cursor-dot,
   .cursor-ring{
