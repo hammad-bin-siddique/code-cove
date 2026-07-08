@@ -1,0 +1,107 @@
+/* ==========================================================================
+   RESPONSIVE STYLES — tablet and mobile rules for index.html + project.html
+   ========================================================================== */
+
+/* --------------------------------------------------------------------
+   Tablet and below: block spacing drops to 3em, hamburger takes over
+   -------------------------------------------------------------------- */
+@media (max-width: 1024px){
+  :root{
+    --space-block: 3em;
+  }
+
+  .hero .container,
+  .about .container,
+  .experience-grid,
+  .contact .container{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual{
+    order: -1;
+  }
+
+  .experience-visual{
+    order: -1;
+  }
+
+  .experience-visual .browser-frame{
+    flex: none;
+  }
+
+  .experience-visual .browser-frame img{
+    height: 260px;
+  }
+
+  .skills-grid,
+  .pricing-grid,
+  .projects-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-grid-page{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links{
+    display: none;
+  }
+
+  .hamburger{
+    display: flex;
+  }
+}
+
+/* --------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------- */
+@media (max-width: 640px){
+  .projects-grid,
+  .skills-grid,
+  .pricing-grid,
+  .project-grid-page{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-cta{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn{
+    justify-content: center;
+  }
+
+  .form-row{
+    grid-template-columns: 1fr;
+  }
+
+  .about-content .stats{
+    gap: 1em;
+  }
+
+  .footer-top,
+  .footer-bottom{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .back-to-top{
+    right: 1.2em;
+    bottom: 1.2em;
+  }
+
+  .contact-form{
+    padding: 1.6em;
+  }
+}
+
+/* --------------------------------------------------------------------
+   Cursor: hide the custom cursor on touch devices, restore native pointer
+   -------------------------------------------------------------------- */
+@media (hover: none), (pointer: coarse){
+  .cursor-dot,
+  .cursor-ring{
+    display: none;
+  }
+}
