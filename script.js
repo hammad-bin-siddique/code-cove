@@ -66,9 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.site-header');
   const onScroll = () => {
     if (header) header.classList.toggle('is-scrolled', window.scrollY > 40);
-
-    const backToTop = document.querySelector('.back-to-top');
-    if (backToTop) backToTop.classList.toggle('is-visible', window.scrollY > 500);
   };
   window.addEventListener('scroll', onScroll);
   onScroll();
@@ -83,14 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeMenu) closeMenu.addEventListener('click', () => mobileNav.classList.remove('is-open'));
     mobileNav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => mobileNav.classList.remove('is-open'));
-    });
-  }
-
-  //  Back to top button
-  const backToTop = document.querySelector('.back-to-top');
-  if (backToTop) {
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
@@ -278,6 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
     chatToggle.addEventListener('click', () => {
       const isOpen = chatPanel.classList.toggle('is-open');
       chatToggle.classList.toggle('is-open', isOpen);
+      const chatHint = document.getElementById('chatHint');
+      if (chatHint) chatHint.classList.add('is-dismissed');
       if (isOpen) chatInput.focus();
     });
 
