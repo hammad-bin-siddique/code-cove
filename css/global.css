@@ -7,7 +7,7 @@
 /* colors */
 :root{
   /* brand colors, kept as given */
-  --ink-black: #001524;
+  --ink-black: #0a0a0a;
   --stormy-teal: #15616d;
   --papaya-whip: #ffecd1;
   --vivid-tangerine: #ff7d00;
@@ -27,8 +27,8 @@
 
   /* dark mode is the default theme */
   --bg-body: var(--ink-black);
-  --bg-surface: #041f2e;
-  --bg-surface-2: #06283a;
+  --bg-surface: #161616;
+  --bg-surface-2: #1e1e1e;
   --text-primary: var(--papaya-whip);
   --text-muted: #b9c6cc;
   --border-soft: rgba(255, 236, 209, 0.12);

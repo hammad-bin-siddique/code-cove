@@ -33,8 +33,13 @@
 
   .skills-grid,
   .pricing-grid,
-  .projects-grid{
+  .projects-grid,
+  .blog-grid{
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-carousel{
+    --visible: 2;
   }
 
   .project-grid-page{
@@ -48,6 +53,11 @@
   .hamburger{
     display: flex;
   }
+
+  .cta-inner{
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 /* Mobile */
@@ -55,8 +65,23 @@
   .projects-grid,
   .skills-grid,
   .pricing-grid,
-  .project-grid-page{
+  .project-grid-page,
+  .blog-grid{
     grid-template-columns: 1fr;
+  }
+
+  .testimonial-carousel{
+    --visible: 1;
+  }
+
+  .cta-inner{
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .cta-actions{
+    flex-direction: column;
   }
 
   .hero-cta{
