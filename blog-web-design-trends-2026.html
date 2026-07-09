@@ -22,6 +22,8 @@
   <meta name="twitter:image" content="https://code-cove-nine.vercel.app/images/hero.webp">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/main.css">
@@ -47,6 +49,14 @@
   <div class="loader">
     <div class="loader-mark"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
   </div>
+  <script>
+    // Absolute failsafe: force-remove the loader after 4s no matter what,
+    // even if script.js fails to load for any reason.
+    setTimeout(function(){
+      var l = document.querySelector('.loader');
+      if (l) l.classList.add('is-hidden');
+    }, 4000);
+  </script>
 
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
@@ -98,7 +108,7 @@
     </section>
 
     <section class="section">
-      <div class="container blog-article" data-reveal>
+      <div class="container blog-article">
         <a href="index.html#blog" class="blog-back"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
 
         <div class="article-meta">
@@ -167,6 +177,29 @@
   </footer>
 
   <button class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Chat Widget -->
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h4>Code Cove Assistant</h4>
+        <span><span class="status-dot"></span> Online, ask me anything</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi! I'm Hammad's assistant. Ask me about his projects, pricing, or how to get started — in any language you like.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
 
   <script src="script.js"></script>
 </body>

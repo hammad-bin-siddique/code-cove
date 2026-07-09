@@ -3,12 +3,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  //  Loader: hide once the page has fully loaded 
+  //  Loader: hide shortly after the page structure is ready, don't wait
+  //  for every image/font/CDN request to finish (that caused the loader
+  //  to get stuck, especially on slow mobile connections)
   const loader = document.querySelector('.loader');
   if (loader) {
-    window.addEventListener('load', () => {
-      setTimeout(() => loader.classList.add('is-hidden'), 400);
-    });
+    const hideLoader = () => loader.classList.add('is-hidden');
+    setTimeout(hideLoader, 450);
+    // absolute safety net in case something above throws before this runs
+    window.addEventListener('load', hideLoader);
   }
 
   // Custom cursor: dot follows instantly, ring follows with a delay
@@ -100,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
   revealItems.forEach((item) => revealObserver.observe(item));
 
   // Active nav link highlighting while scrolling 
@@ -239,5 +242,80 @@ document.addEventListener('DOMContentLoaded', () => {
   // auto-update footer year
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Chat widget
+  const chatToggle = document.getElementById('chatToggle');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatForm = document.getElementById('chatForm');
+  const chatInput = document.getElementById('chatInput');
+  const chatMessages = document.getElementById('chatMessages');
+
+  if (chatToggle && chatPanel && chatForm && chatInput && chatMessages) {
+    const history = [];
+
+    const scrollToBottom = () => {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    const addMessage = (text, role) => {
+      const el = document.createElement('div');
+      el.className = `chat-msg ${role === 'user' ? 'user' : 'bot'}`;
+      el.textContent = text;
+      chatMessages.appendChild(el);
+      scrollToBottom();
+      return el;
+    };
+
+    const showTyping = () => {
+      const el = document.createElement('div');
+      el.className = 'chat-msg bot typing';
+      el.innerHTML = '<span></span><span></span><span></span>';
+      chatMessages.appendChild(el);
+      scrollToBottom();
+      return el;
+    };
+
+    chatToggle.addEventListener('click', () => {
+      const isOpen = chatPanel.classList.toggle('is-open');
+      chatToggle.classList.toggle('is-open', isOpen);
+      if (isOpen) chatInput.focus();
+    });
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      addMessage(text, 'user');
+      history.push({ role: 'user', content: text });
+      chatInput.value = '';
+      chatInput.disabled = true;
+
+      const typingEl = showTyping();
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: history }),
+        });
+        const data = await res.json();
+        typingEl.remove();
+
+        if (!res.ok) {
+          addMessage(data.error || "Sorry, something went wrong. Please try again.", 'bot');
+        } else {
+          addMessage(data.reply, 'bot');
+          history.push({ role: 'assistant', content: data.reply });
+        }
+      } catch (err) {
+        typingEl.remove();
+        addMessage("I couldn't connect just now. Please check your connection and try again, or reach out on WhatsApp.", 'bot');
+      } finally {
+        chatInput.disabled = false;
+        chatInput.focus();
+      }
+    });
+  }
 
 });

@@ -1,8 +1,10 @@
 /* GLOBAL STYLES
    Fonts, color tokens, spacing tokens, resets. Everything else (layout,
-   components, page-specific rules) lives in main.css and responsive.css. */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+   components, page-specific rules) lives in main.css and responsive.css.
+   Note: Google Fonts are now loaded via a <link> tag in each page's <head>
+   instead of @import here, since @import blocks rendering while it waits
+   for a second network round-trip. A <link> lets the browser fetch the
+   font in parallel with everything else. */
 
 /* colors */
 :root{
