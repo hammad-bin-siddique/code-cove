@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  //  Contact form: send via FormSubmit AJAX so messages actually arrive
+  //  Contact form: send via Web3Forms so messages actually arrive
   const contactForm = document.querySelector('.contact-form form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -199,20 +199,20 @@ document.addEventListener('DOMContentLoaded', () => {
       button.disabled = true;
 
       const formData = new FormData(contactForm);
-      const actionUrl = contactForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+      const payload = Object.fromEntries(formData.entries());
 
-      fetch(actionUrl, {
+      fetch(contactForm.action, {
         method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
       })
         .then(async (response) => {
-          if (!response.ok) {
-            const text = await response.text().catch(() => '');
-            console.error('FormSubmit error response:', response.status, text);
-            throw new Error('Network response was not ok');
+          const data = await response.json().catch(() => ({}));
+          if (!response.ok || data.success === false) {
+            console.error('Web3Forms error response:', response.status, data);
+            throw new Error(data.message || 'Network response was not ok');
           }
-          return response.json();
+          return data;
         })
         .then(() => {
           button.innerHTML = 'Message sent <i class="fa-solid fa-check"></i>';
