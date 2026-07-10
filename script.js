@@ -206,8 +206,12 @@ document.addEventListener('DOMContentLoaded', () => {
         body: formData,
         headers: { Accept: 'application/json' },
       })
-        .then((response) => {
-          if (!response.ok) throw new Error('Network response was not ok');
+        .then(async (response) => {
+          if (!response.ok) {
+            const text = await response.text().catch(() => '');
+            console.error('FormSubmit error response:', response.status, text);
+            throw new Error('Network response was not ok');
+          }
           return response.json();
         })
         .then(() => {
@@ -218,7 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
             button.disabled = false;
           }, 2500);
         })
-        .catch(() => {
+        .catch((err) => {
+          console.error('Contact form submit failed:', err);
           button.innerHTML = 'Failed, try again <i class="fa-solid fa-triangle-exclamation"></i>';
           setTimeout(() => {
             button.innerHTML = originalText;
