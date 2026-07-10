@@ -34,7 +34,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Why Website Speed Is a Ranking Factor (And How to Fix It)",
-    "description": "A practical comparison of WordPress and hand-coded websites to help you pick the right platform for your project.",
+    "description": "A practical comparison of WordPress and hand coded websites to help you pick the right platform for your project.",
     "author": { "@type": "Person", "name": "Hammad Siddique" },
     "publisher": { "@type": "Person", "name": "Hammad Siddique" },
     "datePublished": "2026-07-05",
@@ -70,8 +70,8 @@
         <a href="index.html#experience">Experience</a>
         <a href="index.html#skills">Skills</a>
         <a href="project.html">Projects</a>
-        <a href="index.html#testimonials">Testimonials</a>
         <a href="index.html#blog" class="is-active">Blog</a>
+        <a href="tools.html">Tools</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <div class="header-actions">
@@ -93,8 +93,8 @@
     <a href="index.html#experience">Experience</a>
     <a href="index.html#skills">Skills</a>
     <a href="project.html">Projects</a>
-    <a href="index.html#testimonials">Testimonials</a>
     <a href="index.html#blog">Blog</a>
+    <a href="tools.html">Tools</a>
     <a href="index.html#contact">Contact</a>
   </div>
 
@@ -103,7 +103,7 @@
       <div class="container">
         <span class="eyebrow" data-reveal><i class="fa-solid fa-blog"></i> Blog</span>
         <h1 data-reveal>Why Website Speed Is a Ranking Factor (And How to Fix It)</h1>
-        <p data-reveal>A practical breakdown of when to build on WordPress and when a hand-coded site is the smarter choice for your business.</p>
+        <p data-reveal>A practical breakdown of when to build on WordPress and when a hand coded site is the smarter choice for your business.</p>
       </div>
     </section>
 
@@ -124,13 +124,13 @@
 
           <h2>Image format is the biggest quick win</h2>
           <p>Unoptimized JPG and PNG images are, by far, the most common reason a site loads slowly. Converting images to WebP typically cuts file size by 60 to 90 percent with no visible quality loss, because WebP uses more efficient compression than older formats while preserving detail. On one recent portfolio rebuild, switching every image to WebP took the total image weight from over 40MB down to under 1MB — the same visuals, a fraction of the download.</p>
-          <p>The impact compounds quickly. A page with ten unoptimized product photos might be pulling 15-20MB just in images before a single line of text renders. Convert those same images to WebP and compress them properly, and that number often drops under 2MB, which on a typical mobile connection is the difference between a two-second load and an eight-second one.</p>
+          <p>The impact compounds quickly. A page with ten unoptimized product photos might be pulling 15-20MB just in images before a single line of text renders. Convert those same images to WebP and compress them properly, and that number often drops under 2MB, which on a typical mobile connection is the difference between a two second load and an eight second one.</p>
 
           <h2>What Core Web Vitals actually measure</h2>
           <p>Google uses three specific metrics to judge whether a page feels fast to a real visitor, and each one catches a different kind of problem:</p>
           <ul>
-            <li><strong>LCP (Largest Contentful Paint)</strong> — how fast the main content loads, usually a hero image or heading. This is most affected by image size, server response time, and render-blocking CSS or JavaScript.</li>
-            <li><strong>CLS (Cumulative Layout Shift)</strong> — whether elements jump around as the page loads, which happens when images or ads load without a reserved space, pushing content down mid-read.</li>
+            <li><strong>LCP (Largest Contentful Paint)</strong> — how fast the main content loads, usually a hero image or heading. This is most affected by image size, server response time, and render blocking CSS or JavaScript.</li>
+            <li><strong>CLS (Cumulative Layout Shift)</strong> — whether elements jump around as the page loads, which happens when images or ads load without a reserved space, pushing content down mid read.</li>
             <li><strong>INP (Interaction to Next Paint)</strong> — how quickly the page responds when someone clicks or taps, which mostly comes down to how much JavaScript is running and how efficiently it's written.</li>
           </ul>
           <p>All three feed into how Google scores a page's overall user experience, and all three are things a visitor notices even if they've never heard the term "Core Web Vitals" — they just experience it as a site that either feels smooth or feels sluggish.</p>
@@ -142,14 +142,14 @@
             <li>Minify CSS and JavaScript, and remove unused plugins on WordPress builds — every inactive plugin still adds weight to the admin, and many poorly coded ones load scripts on every page even when they're not needed there</li>
             <li>Host on fast infrastructure — Vercel and similar platforms handle caching, compression and global delivery well by default, without extra configuration</li>
             <li>Set a canonical URL and clean meta tags so Google indexes the right version of each page instead of splitting ranking signals across duplicates</li>
-            <li>Audit third-party scripts — analytics tools, chat widgets and font embeds are common hidden sources of slowdown that rarely get questioned once they're added</li>
+            <li>Audit third party scripts — analytics tools, chat widgets and font embeds are common hidden sources of slowdown that rarely get questioned once they're added</li>
           </ul>
 
           <h2>How I test a site's speed</h2>
           <p>Before touching any code, I run the site through Google PageSpeed Insights and check the Core Web Vitals report in Search Console if the client has access. That gives a baseline for both mobile and desktop, since mobile scores are almost always worse and matter more for ranking, given how much search traffic now comes from phones. From there, it's usually clear within minutes whether the bottleneck is images, unused code, or server response time.</p>
 
           <h2>Why this matters beyond rankings</h2>
-          <p>A one-second delay in load time measurably increases bounce rate — visitors simply leave before the page finishes loading, and that behavior itself becomes a negative signal that can hurt rankings further over time. Speed isn't just an SEO checkbox, it directly affects whether a visitor sticks around long enough to read your content, browse your products, or fill out your contact form. It's one of the first things I audit on every project I take on, because no amount of good design or copywriting matters if half your visitors never wait long enough to see it.</p>
+          <p>A one second delay in load time measurably increases bounce rate — visitors simply leave before the page finishes loading, and that behavior itself becomes a negative signal that can hurt rankings further over time. Speed isn't just an SEO checkbox, it directly affects whether a visitor sticks around long enough to read your content, browse your products, or fill out your contact form. It's one of the first things I audit on every project I take on, because no amount of good design or copywriting matters if half your visitors never wait long enough to see it.</p>
         </article>
 
         <div class="article-cta">
@@ -185,7 +185,7 @@
   </footer>
 
     <!-- Chat Widget -->
-  <div class="chat-hint" id="chatHint">Ask me anything about this site or my services</div>
+  <div class="chat-hint" id="chatHint">👋 Ask me anything about this site or my services</div>
   <button class="chat-toggle" id="chatToggle" aria-label="Open chat, ask about this website or services">
     <i class="fa-solid fa-comment-dots"></i>
     <i class="fa-solid fa-xmark"></i>
