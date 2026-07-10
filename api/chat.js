@@ -42,6 +42,7 @@ FREE TOOLS (available on the Tools page, linked in the nav menu):
 - Image Converter — convert images between JPG, PNG and WebP right in the browser (tool-image-converter.html)
 - Currency Converter — live exchange rates between world currencies (tool-currency-converter.html)
 - QR Code Generator — turn any link or text into a downloadable QR code (tool-qr-generator.html)
+- Website Analyzer — checks any site's real time speed, page size and basic SEO signals (tool-website-analyzer.html)
 - All tools are free, need no signup, and are linked from the "Tools" page (tools.html)
 
 CONTACT:
