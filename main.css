@@ -1182,9 +1182,10 @@
 }
 
 .services-carousel{
-  position: relative;
   overflow: hidden;
   flex: 1;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   --visible: 3;
   --total: 10;
 }
@@ -1215,9 +1216,8 @@
 
 .services-card img{
   width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: contain;
-  background: var(--bg-surface-2);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   display: block;
 }
 
@@ -1227,6 +1227,27 @@
   font-family: var(--font-heading);
   font-size: .9rem;
   font-weight: 600;
+}
+
+.services-arrow{
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-surface);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.services-arrow:hover{
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--ink-black);
 }
 
 /* Testimonials Carousel */

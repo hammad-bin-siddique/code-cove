@@ -14,6 +14,74 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', hideLoader);
   }
 
+  // Our Services carousels: JS-driven infinite marquee (2 rows, opposite
+  // directions) so the arrow buttons can nudge the same motion smoothly
+  // instead of fighting a CSS keyframe animation.
+  const servicesRows = [
+    { el: document.getElementById('servicesRow1'), reverse: false }, // left to right
+    { el: document.getElementById('servicesRow2'), reverse: true },  // right to left
+  ];
+
+  servicesRows.forEach(row => {
+    if (!row.el) return;
+    const track = row.el.querySelector('.services-track');
+    if (!track) return;
+
+    const speed = 0.4; // px per frame at ~60fps
+    let halfWidth = 0;
+    // "offset" always counts up from 0 to halfWidth and wraps, regardless
+    // of visual direction, to keep the arrow-nudge math simple.
+    let offset = 0;
+    let resumeTimeout = null;
+    let rafId = null;
+
+    const measure = () => {
+      halfWidth = track.scrollWidth / 2;
+    };
+    measure();
+    window.addEventListener('resize', measure);
+
+    const wrap = () => {
+      if (halfWidth <= 0) return;
+      offset = ((offset % halfWidth) + halfWidth) % halfWidth;
+    };
+
+    const render = () => {
+      // reverse=false (left to right): track starts fully shifted left and
+      // eases back toward 0 as offset grows.
+      // reverse=true (right to left): track starts at 0 and shifts left as
+      // offset grows (same feel as the testimonials carousel).
+      const x = row.reverse ? -offset : -(halfWidth - offset);
+      track.style.transform = `translateX(${x}px)`;
+    };
+
+    const tick = () => {
+      offset += speed;
+      wrap();
+      render();
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const start = () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const stop = () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    };
+
+    start();
+
+    row.el.addEventListener('mouseenter', stop);
+    row.el.addEventListener('mouseleave', () => {
+      if (!resumeTimeout) start();
+    });
+  });
+
   // Custom cursor: dot follows instantly, ring follows with a delay
   const cursorDot = document.querySelector('.cursor-dot');
   const cursorRing = document.querySelector('.cursor-ring');

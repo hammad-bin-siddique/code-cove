@@ -84,6 +84,12 @@
     --visible: 1;
   }
 
+  .services-arrow{
+    width: 34px;
+    height: 34px;
+    font-size: .85rem;
+  }
+
   .cta-inner{
     flex-direction: column;
     align-items: stretch;
