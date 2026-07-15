@@ -31,6 +31,20 @@
     height: 260px;
   }
 
+  .service-row{
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+
+  .service-row.is-reversed .service-visual,
+  .service-row.is-reversed .service-copy{
+    order: initial;
+  }
+
+  .service-visual{
+    aspect-ratio: 3 / 2;
+  }
+
   .skills-grid,
   .pricing-grid,
   .projects-grid,
@@ -67,6 +81,16 @@
 
 /* Mobile */
 @media (max-width: 640px){
+  .service-visual{
+    padding: .5em;
+  }
+
+  .service-index{
+    width: 42px;
+    height: 42px;
+    font-size: .95rem;
+  }
+
   .projects-grid,
   .skills-grid,
   .pricing-grid,

@@ -23,6 +23,19 @@ SKILLS:
 - WordPress & CMS: WordPress, WooCommerce, Elementor, ACF, CPT UI, Yoast SEO, Customizer, SMTP/WP Mail
 - Frontend: HTML5, CSS3, JavaScript, Responsive Design, Flexbox/Grid, Debugging, UI/UX Design
 
+SERVICES (full details on the Services page, linked in the nav menu as "Services", services.html):
+- Agency Website — portfolio driven sites with animated project grids and case study pages
+- Business Website — clean, professional sites with service, pricing and about pages
+- Ecommerce Website — full WooCommerce stores with product, cart and checkout pages
+- Educational Website — course/institute sites with admission and enquiry forms
+- Healthcare Website — clinic sites with appointment booking forms
+- Landing Page — single page, high converting sites built around one call to action
+- Portfolio Website — personal portfolio sites for freelancers and creatives
+- Real Estate Website — property listing sites with filters and inquiry forms
+- Restaurant Website — menu focused sites with reservation or online order forms
+- SaaS Website — product sites with feature, pricing and signup sections
+- If someone asks what services Hammad offers, or asks about a specific business type (agency, ecommerce, clinic, restaurant, real estate, SaaS, etc), mention the relevant service(s) above and point them to the Services page (services.html) for the full breakdown and key features.
+
 PROJECTS (all in the Projects section):
 - Hayat Islamic (WordPress, informational + SEO) — https://hayatislamic.com
 - Tradenest (WordPress, WooCommerce) — https://tradenest-five.vercel.app/
