@@ -349,12 +349,17 @@
   height: 100%;
 }
 
-.about-visual img{
+.about-visual .browser-frame{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-visual .browser-frame img{
+  flex: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius);
-  border: 1px solid var(--border-soft);
 }
 
 .about-content{
@@ -1598,6 +1603,16 @@
   margin-top: 1.6em;
 }
 
+.contact-info .info-item a{
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-info .info-item a:hover{
+  color: var(--color-accent);
+}
+
 .contact-note{
   margin-top: auto;
   padding-top: 2em;
@@ -1672,6 +1687,18 @@
   border: 1px solid var(--border-soft);
   border-radius: 10px;
   transition: border-color var(--transition-fast);
+}
+
+.form-group select{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 2.8em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23ff7d00' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1em center;
+  background-size: 13px;
+  cursor: pointer;
 }
 
 .form-group input:focus,
@@ -1818,6 +1845,69 @@
 
 .lightbox-close:hover{
   transform: rotate(90deg);
+}
+
+/* Contact page - quick contact method cards */
+.contact-methods-section{
+  padding-top: 0;
+}
+
+.contact-methods-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8em;
+}
+
+.contact-method-card{
+  text-align: center;
+}
+
+.contact-method-card .tool-icon{
+  margin-inline: auto;
+}
+
+.contact-method-card p{
+  word-break: break-word;
+}
+
+/* Contact page - equal height info/form columns */
+.contact-page .contact-info{
+  justify-content: flex-start;
+}
+
+.contact-page .contact-note{
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 1px solid var(--border-soft);
+}
+
+.contact-page-socials{
+  margin-top: auto;
+  padding-top: 2em;
+}
+
+.contact-page-socials > span{
+  display: block;
+  font-size: .85rem;
+  color: var(--text-muted);
+  margin-bottom: 1em;
+}
+
+.contact-page-form form{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contact-page-form .form-group:has(textarea){
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-page-form .form-group:has(textarea) textarea{
+  flex: 1;
+  min-height: 140px;
 }
 
 /* hero page link  */
